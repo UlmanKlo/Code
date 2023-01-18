@@ -44,6 +44,10 @@ class Draw():
         c.create_line((x - r, y - r), (x + r, y + r), fill=color, width=4)
         c.create_line((x - r, y + r), (x + r, y - r), fill=color, width=4)
 
+    def exit_button(self):
+        c.create_rectangle((WIDTH-100, 0),(WIDTH, 80), fill="red", outline="")
+        c.create_text((WIDTH-50, 40), text="Exit")
+
 
 class Player():
     is_circle = True
@@ -68,10 +72,16 @@ class Player():
                 Draw().cross(box_pos[0], box_pos[1], self.r, "blue")
                 self.is_circle = not self.is_circle
 
+    def check(pos):
+        if WIDTH - 50 < pos.x < WIDTH and 0 < pos.y < 80:
+            quit()
+
 
 Draw().board()
+Draw().exit_button()
 
 # Binds
 c.bind("<Button-1>", Player().plant_tvar)
+c.bind("<Button-1>", Player.check)
 
 root.mainloop()
