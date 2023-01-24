@@ -72,8 +72,9 @@ class Player():
                 Draw().cross(box_pos[0], box_pos[1], self.r, "blue")
                 self.is_circle = not self.is_circle
 
+
     def check(pos):
-        if WIDTH - 50 < pos.x < WIDTH and 0 < pos.y < 80:
+        if WIDTH - 100 < pos.x < WIDTH and 0 < pos.y < 80:
             quit()
 
 
